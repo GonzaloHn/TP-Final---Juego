@@ -5,7 +5,9 @@ using UnityEngine;
 public class TruckIA : MonoBehaviour
 {
     public float movementSpeed;
+
     public GameObject player;
+    public bool playerIsOnPlatform = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +18,36 @@ public class TruckIA : MonoBehaviour
     void Update()
     {
         transform.Translate(movementSpeed, 0, 0);
+
+        if (playerIsOnPlatform)
+        {
+            player.transform.SetParent(this.transform);
+        }
+        else
+        {
+            player.transform.SetParent(null);
+        }
     }
     
-    void OnCollisionStay(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-
-        if (collision.gameObject.name == "Prueba")
+        if (collision.gameObject.name == "RigidBodyFPSController")
         {
-            player.transform.Translate(0, 0, movementSpeed);
-       }
+            playerIsOnPlatform = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name == "RigidBodyFPSController")
+        {
+            playerIsOnPlatform = false;
+        }
+
+        if(collision.gameObject.name == "Goal")
+        {
+            Destroy(gameObject);
+        }
     }
 
     /*public GameObject Bullet;

@@ -11,12 +11,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [Serializable]
         public class MovementSettings
         {
-            public float ForwardSpeed = 8.0f;   // Speed when walking forward
-            public float BackwardSpeed = 4.0f;  // Speed when walking backwards
-            public float StrafeSpeed = 4.0f;    // Speed when walking sideways
-            public float RunMultiplier = 2.0f;   // Speed when sprinting
+            public float ForwardSpeed = 9.0f;   // Speed when walking forward, antes era 8
+            public float BackwardSpeed = 5.0f;  // Speed when walking backwards, antes era 4
+            public float StrafeSpeed = 5.0f;    // Speed when walking sideways, antes era 4
+            public float RunMultiplier = 2.0f;   // Speed when sprinting, antes era dos
 	        public KeyCode RunKey = KeyCode.LeftShift;
-            public float JumpForce = 30f;
+            public float JumpForce = 40f; //antes era 30
             public AnimationCurve SlopeCurveModifier = new AnimationCurve(new Keyframe(-90.0f, 1.0f), new Keyframe(0.0f, 1.0f), new Keyframe(90.0f, 0.0f));
             [HideInInspector] public float CurrentTargetSpeed = 8f;
 
@@ -259,6 +259,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (!m_PreviouslyGrounded && m_IsGrounded && m_Jumping)
             {
                 m_Jumping = false;
+            }
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.name == "Floor")
+            {
+                Destroy(gameObject);
             }
         }
     }
