@@ -8,16 +8,19 @@ public class TruckIA : MonoBehaviour
 
     public GameObject player;
     public bool playerIsOnPlatform = false;
+
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(movementSpeed, 0, 0);
+        //transform.Translate(movementSpeed, 0, 0);
+        rb.velocity = new Vector3(1, 0, 0) * movementSpeed;
 
         if (playerIsOnPlatform)
         {
