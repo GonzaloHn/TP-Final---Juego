@@ -9,49 +9,62 @@ public class TruckIA : MonoBehaviour
     public GameObject player;
     public bool playerIsOnPlatform = false;
 
+    public int xPos;
+    public int zPos;
+    public int platformAmount;
+
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        while(platformAmount < 6)
+        {
+
+            xPos = Random.Range(1, 10);
+            zPos = Random.Range(1, 10);
+            Instantiate(gameObject);
+            transform.position = new Vector3(xPos, 4.4f, zPos);
+        }
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(movementSpeed, 0, 0);
-        rb.velocity = new Vector3(1, 0, 0) * movementSpeed;
+        ////transform.Translate(movementSpeed, 0, 0);
+        //rb.velocity = new Vector3(1, 0, 0) * movementSpeed;
 
-        if (playerIsOnPlatform)
-        {
-            player.transform.SetParent(this.transform);
-        }
-        else
-        {
-            player.transform.SetParent(null);
-        }
+        //if (playerIsOnPlatform)
+        //{
+        //    //player.transform.SetParent(transform);
+        //    player.GetComponent<Rigidbody>().velocity = rb.velocity;
+        //}
+        //else
+        //{
+        //    player.transform.SetParent(null);
+        //}
     }
     
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "RigidBodyFPSController")
-        {
-            playerIsOnPlatform = true;
-        }
-    }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.name == "RigidBodyFPSController")
+    //    {
+    //        playerIsOnPlatform = true;
+    //    }
+    //}
 
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.name == "RigidBodyFPSController")
-        {
-            playerIsOnPlatform = false;
-        }
+    //void OnCollisionExit(Collision collision)
+    //{
+    ////    if (collision.gameObject.name == "RigidBodyFPSController")
+    ////    {
+    ////        playerIsOnPlatform = false;
+    ////    }
 
-        if(collision.gameObject.name == "Goal")
-        {
-            Destroy(gameObject);
-        }
-    }
+    //    if(collision.gameObject.name == "Goal")
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     /*public GameObject Bullet;
      public Transform BulletSpawn;
