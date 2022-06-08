@@ -17,14 +17,14 @@ public class TruckIA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        while(platformAmount < 6)
-        {
+        //while(platformAmount < 6)
+        //{
 
-            xPos = Random.Range(1, 10);
-            zPos = Random.Range(1, 10);
-            Instantiate(gameObject);
-            transform.position = new Vector3(xPos, 4.4f, zPos);
-        }
+        //    xPos = Random.Range(1, 10);
+        //    zPos = Random.Range(1, 10);
+        //    Vector3 platformPosition = new Vector3(xPos, 4.4f, zPos);
+        //    Instantiate();
+        //}
         rb = GetComponent<Rigidbody>();
     }
 

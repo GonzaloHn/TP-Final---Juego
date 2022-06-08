@@ -264,7 +264,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         void OnCollisionEnter(Collision collision)
         {
-            Debug.Log(collision.gameObject.name);
             if (collision.gameObject.name == "Floor")
             {
                 Destroy(gameObject);
