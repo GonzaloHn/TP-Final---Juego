@@ -25,17 +25,17 @@ public class GameMotor : MonoBehaviour
         //Transform de Floor
         floor.transform.position = new Vector3(0, 0, 0);
         floor.transform.rotation = Quaternion.Euler(0, 90, 0);
-        floor.transform.localScale = new Vector3(5.795128f, 1, 23.61662f);
+        floor.transform.localScale = new Vector3(6, 1, 25);
 
         //Transform de Goal
-        goal.transform.position = new Vector3(115, 38.1f, 0);
+        goal.transform.position = new Vector3(115, 40, 0);
         goal.transform.rotation = Quaternion.Euler(0, 0, 0);
-        goal.transform.localScale = new Vector3(1.264f, 68.51382f, 99.93681f);
+        goal.transform.localScale = new Vector3(1.5f, 70, 100);
 
         //Transform de Platform
-        platform.transform.position = new Vector3(-108.8f, 4, 0);
+        platform.transform.position = new Vector3(-110, 4, 0);
         platform.transform.rotation = Quaternion.Euler(0, 0, 0);
-        platform.transform.localScale = new Vector3(8.9907f, 0.5111f, 4.3213f);
+        platform.transform.localScale = new Vector3(9, 0.5f, 4.5f);
 
 
 
@@ -46,7 +46,7 @@ public class GameMotor : MonoBehaviour
        //{
        //     xPos = Random.Range(-21, -1);
        //     zPos = Random.Range(-21, -1);
-       //     Vector3 platformPosition = new Vector3(xPos, 3.0f, zPos);
+       //     Vector3 platformPosition = new Vector3(xPos, 4, zPos);
 
        //     Instantiate(platform, platformPosition, platform.transform.rotation);
        //}
