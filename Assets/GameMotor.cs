@@ -28,9 +28,9 @@ public class GameMotor : MonoBehaviour
         floor.transform.localScale = new Vector3(6, 1, 25);
 
         //Transform de Goal
-        goal.transform.position = new Vector3(115, 40, 0);
-        goal.transform.rotation = Quaternion.Euler(0, 0, 0);
-        goal.transform.localScale = new Vector3(1.5f, 70, 100);
+        goal.transform.position = new Vector3(122, 33, 0);
+        goal.transform.rotation = Quaternion.Euler(0, 0, 90);
+        goal.transform.localScale = new Vector3(63, 3, 120);
 
         //Transform de Platform
         platform.transform.position = new Vector3(-110, 4, 0);
@@ -42,23 +42,23 @@ public class GameMotor : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         //Platform Prefab
-       //for(int i = 0; i<platformAmount; i++)
-       //{
-       //     xPos = Random.Range(-21, -1);
-       //     zPos = Random.Range(-21, -1);
-       //     Vector3 platformPosition = new Vector3(xPos, 4, zPos);
+      for(int i = 0; i<platformAmount; i++)
+       {
+            xPos = Random.Range(-115, -101);
+            zPos = Random.Range(-4, 4);
+            Vector3 platformPosition = new Vector3(xPos, 4, zPos);
 
-       //     Instantiate(platform, platformPosition, platform.transform.rotation);
-       //}
+            Instantiate(platform, platformPosition, platform.transform.rotation); //algo con collision ENter
+       }
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(1, 0, 0) * -movementSpeed;
+        rb.velocity = new Vector3(1, 0, 0) * -movementSpeed; //transform.translate
         floor.transform.SetParent(this.transform);
         goal.transform.SetParent(this.transform);
-        //leftCube.transform.SetParent(this.transform);
+        leftCube.transform.SetParent(this.transform);
         //rightCube.transform.SetParent(this.transform);
     }
 }

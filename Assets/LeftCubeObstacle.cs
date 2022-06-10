@@ -31,17 +31,23 @@ public class LeftCubeObstacle : MonoBehaviour
             currTime -= Time.deltaTime;
             Debug.Log(reloadTime);
         }
-        if (currTime <= 0 && !goes && transform.position.z >= -30)
+        if (/*currTime <= 0 &&*/ !goes)
         {
+            if(transform.position.z >= -30)
+            {
             rb.velocity = new Vector3(0, 0, 1) * -movementSpeed;
             currTime = reloadTime;
             goes = true;
+            }   
         }
-        if (currTime <= 0 && goes)
+        if (/*currTime <= 0 &&*/ goes)
         {
-            rb.velocity = new Vector3(0, 0, 1) * movementSpeed;
-            currTime = reloadTime;
-            goes = false;
+            if(transform.position.z <= 40)
+            {
+                rb.velocity = new Vector3(0, 0, 1) * movementSpeed;
+                currTime = reloadTime;
+                goes = false;
+            }
         }
     }
 }
