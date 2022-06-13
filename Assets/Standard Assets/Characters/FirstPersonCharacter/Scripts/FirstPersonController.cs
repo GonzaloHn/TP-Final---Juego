@@ -268,7 +268,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 //Destroy(gameObject);
                 Debug.Log("llego");
             }
-            if (collision.gameObject.name == "Platform")
+            if (collision.gameObject.name == "Bullet")
             {
                 Destroy(gameObject);
             }

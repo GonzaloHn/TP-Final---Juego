@@ -56,9 +56,9 @@ public class GameMotor : MonoBehaviour
     void Update()
     {
         transform.Translate(-1, 0, 0 * movementSpeed);
-        //floor.transform.SetParent(this.transform);
-        //goal.transform.SetParent(this.transform);
-        //leftCube.transform.SetParent(this.transform);
-        //rightCube.transform.SetParent(this.transform);
+        floor.transform.SetParent(this.transform);
+        goal.transform.SetParent(this.transform);
+        leftCube.transform.SetParent(this.transform);
+        rightCube.transform.SetParent(this.transform);
     }
 }

@@ -33,7 +33,6 @@ public class LeftCubeObstacle : MonoBehaviour
         if (currTime > 0)
         {
             currTime -= Time.deltaTime;
-            Debug.Log(reloadTime);
         }
         if (currTime <= 0 && !goes)
         {
