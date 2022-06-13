@@ -256,5 +256,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.name == "Floor")
+            {
+                Destroy(gameObject);
+            }
+            if (collision.gameObject.name == "Goal")
+            {
+                //Destroy(gameObject);
+                Debug.Log("llego");
+            }
+            if (collision.gameObject.name == "Platform")
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

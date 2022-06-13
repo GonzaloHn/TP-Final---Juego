@@ -24,11 +24,11 @@ public class GameMotor : MonoBehaviour
     {
         //Transform de Floor
         floor.transform.position = new Vector3(0, 0, 0);
-        floor.transform.rotation = Quaternion.Euler(0, 90, 0);
-        floor.transform.localScale = new Vector3(6, 1, 25);
+        floor.transform.rotation = Quaternion.Euler(90, 0, 0);
+        floor.transform.localScale = new Vector3(220, 130, 1);
 
         //Transform de Goal
-        goal.transform.position = new Vector3(122, 33, 0);
+        goal.transform.position = new Vector3(110, 33, 0);
         goal.transform.rotation = Quaternion.Euler(0, 0, 90);
         goal.transform.localScale = new Vector3(63, 3, 120);
 
@@ -55,10 +55,10 @@ public class GameMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(1, 0, 0) * -movementSpeed; //transform.translate
-        floor.transform.SetParent(this.transform);
-        goal.transform.SetParent(this.transform);
-        leftCube.transform.SetParent(this.transform);
+        transform.Translate(-1, 0, 0 * movementSpeed);
+        //floor.transform.SetParent(this.transform);
+        //goal.transform.SetParent(this.transform);
+        //leftCube.transform.SetParent(this.transform);
         //rightCube.transform.SetParent(this.transform);
     }
 }

@@ -266,12 +266,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if (collision.gameObject.name == "Floor")
             {
-                //Destroy(gameObject);
+                Destroy(gameObject);
             }
             if (collision.gameObject.name == "Goal")
             {
                 //Destroy(gameObject);
                 Debug.Log("llego");
+            }
+            if(collision.gameObject.name == "Bullet")
+            {
+                Destroy(gameObject);
             }
         }
     }
