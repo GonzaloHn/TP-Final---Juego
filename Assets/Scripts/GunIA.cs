@@ -12,6 +12,9 @@ public class GunIA : MonoBehaviour
     public float reloadTime;
     float currTime;
 
+    Rigidbody rb;
+    public float gameMotorSpeed;
+
     public AudioClip shoot;
     AudioSource fuenteAudio;
 
@@ -19,6 +22,7 @@ public class GunIA : MonoBehaviour
     void Start()
     {
 
+        rb = GetComponent<Rigidbody>();
         transform.position = new Vector3(-30, 10, -100);
         /*
          int chance = Random.Range(1, 2);
@@ -43,6 +47,7 @@ public class GunIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 0);
         if (currTime > 0)
         {
             currTime -= Time.deltaTime;
@@ -52,7 +57,7 @@ public class GunIA : MonoBehaviour
         Debug.DrawRay(transform.position, targetOrientation, Color.green);
 
         Quaternion targetOrientationQuanternion = Quaternion.LookRotation(targetOrientation);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetOrientationQuanternion, Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetOrientationQuanternion, 100);
 
         if (currTime <= 0)
         {

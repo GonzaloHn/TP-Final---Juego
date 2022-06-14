@@ -38,18 +38,40 @@ public class GameMotor : MonoBehaviour
         platform.transform.localScale = new Vector3(9, 0.5f, 4.5f);
 
         //Instantiate de Cubes
-        int initialLeftCubePosition = 15 - 60;
-        int initialRightCubePosition = 5 - 60;
-        //for (int i = 0; i < 3; i++)
+        //int initialLeftCubePosition = 15;
+        //int initialRightCubePosition = 5;
+        //for (int i = 0; i < 1; i++)
         //{
-        //    Vector3 leftCubePosition = new Vector3(initialLeftCubePosition, 8, 70);
+        //    Vector3 leftCubePosition = new Vector3(15, 8, 70);
         //    Instantiate(leftCube, leftCubePosition, leftCube.transform.rotation);
 
-        //    Vector3 rightCubePosition = new Vector3(initialRightCubePosition, 8, -70);
+        //    Vector3 rightCubePosition = new Vector3(5, 8, -70);
         //    Instantiate(rightCube, rightCubePosition, rightCube.transform.rotation);
+            
+        //    initialLeftCubePosition = initialLeftCubePosition - 40;
+        //    initialRightCubePosition = initialRightCubePosition - 40;
+        //}
+        //for (int i = 0; i < 2; i++)
+        //{
+        //    int chance = Random.Range(1, 3);
+        //    switch (chance)
+        //    {
+        //        case 1:
+        //            Instantiate(leftCube, new Vector3(8, -45, 70), leftCube.transform.rotation);
+        //            Instantiate(rightCube, new Vector3(-55, 8, 70), rightCube.transform.rotation);
+        //            break;
+        //        case 2:
+        //            Instantiate(leftCube, new Vector3(8, -105, 70), leftCube.transform.rotation);
+        //            Instantiate(rightCube, new Vector3(-115, 8, 70), rightCube.transform.rotation);
+        //            break;
+        //        case 3:
+        //            Instantiate(leftCube, new Vector3(8, -170, 70), leftCube.transform.rotation);
+        //            Instantiate(rightCube, new Vector3(-185, 8, 70), rightCube.transform.rotation);
+        //            break;
+        //        default:
+        //            break;
 
-        //    initialLeftCubePosition = initialLeftCubePosition - 60;
-        //    initialRightCubePosition = initialRightCubePosition - 60;
+        //    }
         //}
         //int chance = Random.Range(1, 10);
         //if (chance < 10)
