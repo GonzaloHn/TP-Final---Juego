@@ -5,6 +5,7 @@ using UnityEngine;
 public class LeftCubeObstacle : MonoBehaviour
 {
     public float movementSpeed;
+    public float gameMotorSpeed;
 
     public float reloadTime;
     float currTime;
@@ -17,7 +18,7 @@ public class LeftCubeObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(15.3f, 6, 75); //llega a -70
+        transform.position = new Vector3(15, 8, 70); //llega a -70
         transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.localScale = new Vector3(10, 10, 10);
 
@@ -38,24 +39,24 @@ public class LeftCubeObstacle : MonoBehaviour
         {
             if(transform.position.z >= -70)
             {
-            rb.velocity = new Vector3(0, 0, 1) * -movementSpeed;
+                rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 1 * -movementSpeed);
             }
             else
             {
-                rb.velocity = new Vector3(0, 0, 0);
+                rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 0);
                 currTime = reloadTime;
                 goes = true;
             }
         }
         if (currTime <= 0 && goes)
         {
-            if(transform.position.z <= 75)
+            if(transform.position.z <= 70)
             {
-                rb.velocity = new Vector3(0, 0, 1) * movementSpeed;
+                rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 1 * movementSpeed);
             }
             else
             {
-                rb.velocity = new Vector3(0, 0, 0);
+                rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 0);
                 currTime = reloadTime;
                 goes = false;
             }
@@ -78,5 +79,6 @@ public class LeftCubeObstacle : MonoBehaviour
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
 
         body.velocity = pushDir * pushPower;
+        body.AddForceAtPosition(body.velocity * 0.1f, hit.point, ForceMode.Impulse);
     }
 }

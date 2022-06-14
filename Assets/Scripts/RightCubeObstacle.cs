@@ -5,6 +5,7 @@ using UnityEngine;
 public class RightCubeObstacle : MonoBehaviour
 {
     public float movementSpeed;
+    public float gameMotorSpeed;
 
     public float reloadTime;
     float currTime;
@@ -17,7 +18,7 @@ public class RightCubeObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(5, 6, -70); //lega a 75
+        transform.position = new Vector3(5, 8, -70); 
         transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.localScale = new Vector3(10, 10, 10);
 
@@ -36,13 +37,13 @@ public class RightCubeObstacle : MonoBehaviour
         }
         if (currTime <= 0 && !goes)
         {
-            if (transform.position.z <= 75)
+            if (transform.position.z <= 70)
             {
-                rb.velocity = new Vector3(0, 0, 1) * movementSpeed;
+                rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 1 * movementSpeed);
             }
             else
             {
-                rb.velocity = new Vector3(0, 0, 0);
+                rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 0);
                 currTime = reloadTime;
                 goes = true;
             }
@@ -51,11 +52,11 @@ public class RightCubeObstacle : MonoBehaviour
         {
             if (transform.position.z >= -70)
             {
-                rb.velocity = new Vector3(0, 0, 1) * -movementSpeed;
+                rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 1 * -movementSpeed);
             }
             else
             {
-                rb.velocity = new Vector3(0, 0, 0);
+                rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 0);
                 currTime = reloadTime;
                 goes = false;
             }
@@ -76,7 +77,7 @@ public class RightCubeObstacle : MonoBehaviour
         }
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-
+        body.AddForceAtPosition(body.velocity * 0.1f, hit.point, ForceMode.Impulse);
         body.velocity = pushDir * pushPower;
     }
 }

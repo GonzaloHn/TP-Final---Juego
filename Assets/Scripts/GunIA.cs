@@ -18,7 +18,6 @@ public class GunIA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fuenteAudio = GetComponent<AudioSource>();
 
         transform.position = new Vector3(-30, 10, -100);
         /*
@@ -47,7 +46,6 @@ public class GunIA : MonoBehaviour
         if (currTime > 0)
         {
             currTime -= Time.deltaTime;
-            Debug.Log(reloadTime);
         }
 
         Vector3 targetOrientation = target.position - transform.position;
@@ -59,7 +57,8 @@ public class GunIA : MonoBehaviour
         if (currTime <= 0)
         {
             Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
-            //fuenteAudio.clip
+            //fuenteAudio.clip = shoot;
+            //fuenteAudio.Play();
             currTime = reloadTime;
         }
     }
