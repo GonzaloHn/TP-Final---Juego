@@ -279,6 +279,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_AudioSource.Play();
                 Destroy(gameObject);
             }
+            if (collision.gameObject.name == "RightCubeObstacle" || collision.gameObject.name == "LeftCubeObstacule")
+            {
+                m_AudioSource.clip = deathSound;
+                m_AudioSource.Play();
+                Destroy(gameObject);
+            }
         }
     }
 }

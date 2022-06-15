@@ -23,6 +23,7 @@ public class GunIA : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody>();
+        fuenteAudio = GetComponent<AudioSource>();
  
     }
 
@@ -45,8 +46,11 @@ public class GunIA : MonoBehaviour
         {
             Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
             currTime = reloadTime;
-            fuenteAudio.clip = shoot;
-            fuenteAudio.Play();
+            if(fuenteAudio)
+            {
+                fuenteAudio.clip = shoot;
+                fuenteAudio.Play();
+            }
         }
     }
 }

@@ -18,11 +18,11 @@ public class Bullet : MonoBehaviour
     {
         transform.position += transform.forward * speed;
     }
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.name == "FPSController")
-        {
-            Destroy(gameObject);
-        }
-    }
+    //void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.name == "FPSController")
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

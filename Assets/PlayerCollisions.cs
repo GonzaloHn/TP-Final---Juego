@@ -15,7 +15,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.name == "Floor")
         {
