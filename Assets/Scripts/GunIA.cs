@@ -23,25 +23,7 @@ public class GunIA : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody>();
-        transform.position = new Vector3(-30, 10, -100);
-        /*
-         int chance = Random.Range(1, 2);
-         if(chance == 1){
-         gunPosition = new Vector3(-30, 10, 70);
-         Instantiate(gameObject, gunPosition, transform.rotation);
-
-        int secondChance = Rnadom.Range(1, 5)
-        if(secondChance == 1){
-        gunPosition = new Vector3(40, 10, 70);
-        Instantiate(gameObject, gunPosition, transform.rotation);
-
-        gunPosition = new Vector3(40, 10, -100);
-        Instantiate(gameObject, gunPosition, transform.rotation);
-        }
-         }
-
-
-         */
+ 
     }
 
     // Update is called once per frame
@@ -62,9 +44,9 @@ public class GunIA : MonoBehaviour
         if (currTime <= 0)
         {
             Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
-            //fuenteAudio.clip = shoot;
-            //fuenteAudio.Play();
             currTime = reloadTime;
+            fuenteAudio.clip = shoot;
+            fuenteAudio.Play();
         }
     }
 }
