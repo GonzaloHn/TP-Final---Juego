@@ -24,7 +24,9 @@ public class GunIA : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         fuenteAudio = GetComponent<AudioSource>();
- 
+        currTime = reloadTime;
+
+
     }
 
     // Update is called once per frame

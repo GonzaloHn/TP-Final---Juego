@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 #pragma warning disable 618, 649
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -265,24 +266,28 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_AudioSource.clip = deathSound;
                 m_AudioSource.Play();
-                Destroy(gameObject);
+                SceneManager.LoadScene("LostScene");
+                //Destroy(gameObject);
             }
             if (collision.gameObject.name == "Goal")
             {
                 m_AudioSource.clip = winSound;
                 m_AudioSource.Play();
+                SceneManager.LoadScene("LostScene");
                 Destroy(gameObject);
             }
             if (collision.gameObject.name == "Bullet")
             {
                 m_AudioSource.clip = deathSound;
                 m_AudioSource.Play();
+                SceneManager.LoadScene("LostScene");
                 Destroy(gameObject);
             }
             if (collision.gameObject.name == "RightCubeObstacle" || collision.gameObject.name == "LeftCubeObstacule")
             {
                 m_AudioSource.clip = deathSound;
                 m_AudioSource.Play();
+                SceneManager.LoadScene("LostScene");
                 Destroy(gameObject);
             }
         }

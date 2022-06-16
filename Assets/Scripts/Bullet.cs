@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Bullet : MonoBehaviour
 {
@@ -18,11 +20,20 @@ public class Bullet : MonoBehaviour
     {
         transform.position += transform.forward * speed;
     }
-    //void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.name == "FPSController")
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.name == "FPSController")
+        {
+            Destroy(other.gameObject);
+        }
+    }
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.name == "FPSController")
+        {
+            Destroy(collision);
+            SceneManager.LoadScene("LostScene");
+
+        }
+    }
 }

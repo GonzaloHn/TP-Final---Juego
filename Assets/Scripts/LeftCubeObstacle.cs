@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LeftCubeObstacle : MonoBehaviour
 {
@@ -18,9 +19,9 @@ public class LeftCubeObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(15, 8, 70); //llega a -70
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-        transform.localScale = new Vector3(10, 10, 10);
+        //transform.position = new Vector3(25, 9, 70); //llega a -70
+        //transform.rotation = Quaternion.Euler(0, 0, 0);
+        //transform.localScale = new Vector3(10, 10, 10);
 
         rb = GetComponent<Rigidbody>();
         goes = false;
@@ -40,6 +41,7 @@ public class LeftCubeObstacle : MonoBehaviour
             if(transform.position.z >= -70)
             {
                 rb.velocity = new Vector3(-1 * gameMotorSpeed, 0, 1 * -movementSpeed);
+
             }
             else
             {
@@ -63,22 +65,13 @@ public class LeftCubeObstacle : MonoBehaviour
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    void OnTriggerEnter(Collider collision)
     {
-        Rigidbody body = hit.collider.attachedRigidbody;
-
-        if (body == null || body.isKinematic)
+        if (collision.gameObject.name == "FPSController")
         {
-            return;
-        }
-        if (hit.moveDirection.y < -0.3)
-        {
-            return;
-        }
+            SceneManager.LoadScene("LostScene");
 
-        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-
-        body.velocity = pushDir * pushPower;
-        body.AddForceAtPosition(body.velocity * 0.1f, hit.point, ForceMode.Impulse);
+        }
     }
+
 }

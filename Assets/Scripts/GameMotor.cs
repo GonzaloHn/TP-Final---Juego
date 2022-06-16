@@ -39,33 +39,33 @@ public class GameMotor : MonoBehaviour
 
         //Instantiate de Cubes
 
-        int cubeChance = Random.Range(1, 5);
-        switch (cubeChance)
-        {
-            case 1:
-                Instantiate(leftCube, new Vector3(-50, 8, 70), leftCube.transform.rotation);
-                Instantiate(rightCube, new Vector3(-40, 8, -70), rightCube.transform.rotation);
-                break;
-            case 2:
-                Instantiate(leftCube, new Vector3(-70, 8, 70), leftCube.transform.rotation);
-                Instantiate(rightCube, new Vector3(-60, 8, -70), rightCube.transform.rotation);
-                break;
-            case 3:
-                Instantiate(leftCube, new Vector3(-120, 8, 70), leftCube.transform.rotation);
-                Instantiate(rightCube, new Vector3(-90, 8, -70), rightCube.transform.rotation);
-                break;
-            case 4:
-                Instantiate(leftCube, new Vector3(-170, 8, 70), leftCube.transform.rotation);
-                Instantiate(rightCube, new Vector3(-150, 8, -70), rightCube.transform.rotation);
-                break;
-            case 5:
-                Instantiate(leftCube, new Vector3(-210, 8, 70), leftCube.transform.rotation);
-                Instantiate(rightCube, new Vector3(-190, 8, -70), rightCube.transform.rotation);
-                break;
-            default:
-                break;
+        //int cubeChance = Random.Range(1, 5);
+        //switch (cubeChance)
+        //{
+        //    case 1:
+        //        Instantiate(leftCube, new Vector3(-50, 5, 70), leftCube.transform.rotation);
+        //        Instantiate(rightCube, new Vector3(-40, 5, -70), rightCube.transform.rotation);
+        //        break;
+        //    case 2:
+        //        Instantiate(leftCube, new Vector3(-70, 5, 70), leftCube.transform.rotation);
+        //        Instantiate(rightCube, new Vector3(-60, 5, -70), rightCube.transform.rotation);
+        //        break;
+        //    case 3:
+        //        Instantiate(leftCube, new Vector3(-120, 5, 70), leftCube.transform.rotation);
+        //        Instantiate(rightCube, new Vector3(-90, 5, -70), rightCube.transform.rotation);
+        //        break;
+        //    case 4:
+        //        Instantiate(leftCube, new Vector3(-170, 5, 70), leftCube.transform.rotation);
+        //        Instantiate(rightCube, new Vector3(-150, 5, -70), rightCube.transform.rotation);
+        //        break;
+        //    case 5:
+        //        Instantiate(leftCube, new Vector3(-210, 5, 70), leftCube.transform.rotation);
+        //        Instantiate(rightCube, new Vector3(-190, 5, -70), rightCube.transform.rotation);
+        //        break;
+        //    default:
+        //        break;
 
-        }
+        //}
 
         rb = GetComponent<Rigidbody>();
 

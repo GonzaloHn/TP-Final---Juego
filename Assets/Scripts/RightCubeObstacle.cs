@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class RightCubeObstacle : MonoBehaviour
 {
@@ -18,9 +20,9 @@ public class RightCubeObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(5, 8, -70); 
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-        transform.localScale = new Vector3(10, 10, 10);
+        //transform.position = new Vector3(5, 9, -70); 
+        //transform.rotation = Quaternion.Euler(0, 0, 0);
+        //transform.localScale = new Vector3(10, 10, 10);
 
         rb = GetComponent<Rigidbody>();
         goes = false;
@@ -63,21 +65,12 @@ public class RightCubeObstacle : MonoBehaviour
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    void OnTriggerEnter(Collider collision)
     {
-        Rigidbody body = hit.collider.attachedRigidbody;
-
-        if (body == null || body.isKinematic)
+        if (collision.gameObject.name == "FPSController")
         {
-            return;
-        }
-        if (hit.moveDirection.y < -0.3)
-        {
-            return;
-        }
+            SceneManager.LoadScene("LostScene");
 
-        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-        body.AddForceAtPosition(body.velocity * 0.1f, hit.point, ForceMode.Impulse);
-        body.velocity = pushDir * pushPower;
+        }
     }
 }
