@@ -27,11 +27,11 @@ public class ObstaclesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gunOne.transform.position = new Vector3(-30, 10, -100);
-        gunTwo.transform.position = new Vector3(-30, 10, 100);
+        gunOne.transform.position = new Vector3(-40, 10, -100);
+        gunTwo.transform.position = new Vector3(-40, 10, 100);
         gunThree.transform.position = new Vector3(-200, 10, -100);
-        gunFour.transform.position = new Vector3(-30, 40, -100);
-        gunFive.transform.position = new Vector3(-30, 40, 100);
+        gunFour.transform.position = new Vector3(-40, 40, -100);
+        gunFive.transform.position = new Vector3(-40, 40, 100);
         gunSix.transform.position = new Vector3(-200, 10, 100);
 
         int chance = Random.Range(0, 5);

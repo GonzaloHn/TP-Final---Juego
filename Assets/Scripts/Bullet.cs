@@ -22,9 +22,17 @@ public class Bullet : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name == "FPSController")
+        if (other.gameObject.name == "Floor")
         {
-            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.name == "RightCubeObstacle")
+        {
+            Destroy(gameObject);
+        }
+        if (other.gameObject.name == "LeftCubeObstacle")
+        {
+            Destroy(gameObject);
         }
     }
     void OnTriggerEnter(Collider collision)
